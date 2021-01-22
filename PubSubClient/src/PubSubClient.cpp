@@ -373,7 +373,7 @@ boolean PubSubClient::loop() {
         if ((t - lastInActivity > this->keepAlive*1000UL) || (t - lastOutActivity > this->keepAlive*1000UL)) {
             if (pingOutstanding) {
                 this->_state = MQTT_CONNECTION_TIMEOUT;
-//                _client->stop();
+//                _client->stop();						//comment calling stop function in mqtt loop function										
                 return false;
             } else {
                 this->buffer[0] = MQTTPINGREQ;
